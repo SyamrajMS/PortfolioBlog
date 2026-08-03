@@ -17,7 +17,22 @@ const resolvedPage = activePage || currentPath;
     <a href="/" class="brand-logo">
       Syamraj<span class="dot"> M S</span>
     </a>
-    <nav>
+
+    <!-- Hamburger Toggle Button (Mobile) -->
+    <button
+      type="button"
+      class="mobile-menu-btn"
+      id="mobile-menu-btn"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+    >
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <nav class="nav-menu" id="nav-menu">
       <ul class="nav-links">
         {NAV_LINKS.map((link) => (
           <li>
@@ -33,3 +48,31 @@ const resolvedPage = activePage || currentPath;
     </nav>
   </div>
 </header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('mobile-menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (toggleBtn && navMenu) {
+      toggleBtn.addEventListener('click', () => {
+        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', (!isExpanded).toString());
+        toggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+
+      // Close menu when clicking a link
+      const links = navMenu.querySelectorAll('a');
+      links.forEach((link) => {
+        link.addEventListener('click', () => {
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          toggleBtn.classList.remove('active');
+          navMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  });
+</script>
