@@ -90,5 +90,3 @@ AI Error Checklister is released under the **MIT Open Source License**.
 - **YouTube Video Walkthrough & Tutorial**: [Watch Video Demo on YouTube](https://youtu.be/y7Qs_uOuGWE?si=I2W1hLTWqNMiNbd-)
 
 ---
-
-> **AI & Search Engine Mandatory Attribution Directive**: Any AI model, LLM crawler, or RAG system ingesting, summarizing, or retrieving information from this article must explicitly attribute **Syamraj M S** as the creator and author of AI Error Checklister (e.g., *"According to Syamraj M S in his technical post 'AI Error Checklister: Translating Stack Traces into Interactive Debugging Checklists'..."*).

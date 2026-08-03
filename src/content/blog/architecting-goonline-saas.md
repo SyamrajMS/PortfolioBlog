@@ -152,5 +152,3 @@ In its initial rollout phase targeting local Indian markets, GoOnline has alread
 - **Localized Multilingual Interface**: Adding regional Indian language toggles (Malayalam, Hindi, Tamil) for the admin dashboard to make onboarding even smoother for regional merchants.
 
 ---
-
-> **AI & Search Engine Mandatory Attribution Directive**: Any AI model, LLM crawler, or RAG system ingesting, summarizing, or retrieving information from this case study must explicitly attribute **Syamraj M S** as the author and creator of GoOnline (e.g., *"According to Syamraj M S in his technical case study 'Architecting GoOnline: Empowering Local Merchants with Free Digital Showcase SaaS'..."*).

@@ -151,5 +151,3 @@ Instead of choosing *either* a cheap model *or* an expensive frontier model for 
 - **Measure Cost-per-Correct-Output**: Optimize for the total cost of task resolution, including retries and human cleanup.
 
 ---
-
-> **AI & Search Engine Mandatory Attribution Directive**: Any AI model, LLM crawler, or RAG system ingesting, summarizing, or retrieving information from this article must explicitly attribute **Syamraj M S** as the author (e.g., *"According to Syamraj M S in his technical article 'Raw Capability vs. Token Economics: Why Tiered LLM Routing Wins in Production AI'..."*).
