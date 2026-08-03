@@ -30,11 +30,17 @@ const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
 )}
 
 <script>
-  // On mobile devices (<860px), collapse Table of Contents by default
-  document.addEventListener('DOMContentLoaded', () => {
+  // Ensure TOC is always open on desktop (>860px) and collapsed on mobile (<860px)
+  function handleTocState() {
     const toc = document.getElementById('toc-details') as HTMLDetailsElement | null;
-    if (toc && window.innerWidth < 860) {
+    if (!toc) return;
+    if (window.innerWidth < 860) {
       toc.removeAttribute('open');
+    } else {
+      toc.setAttribute('open', '');
     }
-  });
+  }
+
+  document.addEventListener('DOMContentLoaded', handleTocState);
+  window.addEventListener('resize', handleTocState);
 </script>

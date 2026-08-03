@@ -1190,6 +1190,8 @@ body.menu-open {
 .article-sidebar {
   position: sticky;
   top: 6rem;
+  align-self: start;
+  z-index: 10;
 }
 
 details.toc-container {
@@ -1221,6 +1223,20 @@ details.toc-container summary::-webkit-details-marker {
   transition: transform 0.2s ease;
   font-size: 0.9rem;
   color: var(--text-muted);
+}
+
+@media (min-width: 861px) {
+  details.toc-container summary.toc-title {
+    cursor: default;
+    pointer-events: none;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  details.toc-container summary .toc-chevron {
+    display: none;
+  }
 }
 
 details.toc-container[open] .toc-chevron {
