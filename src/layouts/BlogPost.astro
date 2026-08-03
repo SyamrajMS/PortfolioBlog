@@ -92,7 +92,7 @@ const articleSchema = JSON.stringify({
 
       {heroImage && (
         <div class="article-hero-image">
-          <img src={heroImage} alt={title} />
+          <img src={heroImage} alt={title} title="Click to zoom image" />
         </div>
       )}
     </header>
@@ -144,4 +144,66 @@ const articleSchema = JSON.stringify({
       </div>
     </div>
   </article>
+
+  <!-- Image Zoom Lightbox Modal -->
+  <div id="image-lightbox" class="image-lightbox" aria-hidden="true">
+    <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close zoomed image">✕</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Zoomed View" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
 </BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    if (!lightbox || !lightboxImg) return;
+
+    // Attach click listeners to all article images
+    const articleImages = document.querySelectorAll('.article-content img, .article-hero-image img');
+    articleImages.forEach((img) => {
+      const htmlImg = img as HTMLImageElement;
+      htmlImg.style.cursor = 'zoom-in';
+      htmlImg.setAttribute('title', 'Click to zoom image');
+      
+      htmlImg.addEventListener('click', () => {
+        lightboxImg.src = htmlImg.src;
+        lightboxImg.alt = htmlImg.alt || 'Zoomed View';
+        if (lightboxCaption) {
+          lightboxCaption.textContent = htmlImg.alt || '';
+        }
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeLightbox);
+    }
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lightbox.querySelector('.lightbox-content')) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  });
+</script>
