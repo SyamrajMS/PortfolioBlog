@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, heroImage, tags } = post.data;
+
+// Estimate reading time (~200 words per minute)
+const wordCount = post.body ? post.body.split(/\s+/).length : 0;
+const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+---
+
+<article class="blog-card" data-tags={tags.join(',')} data-title={title.toLowerCase()} data-description={description.toLowerCase()}>
+  {heroImage && (
+    <div class="blog-card-image-container">
+      <a href={`/blog/${post.id}/`}>
+        <img src={heroImage} alt={title} loading="lazy" class="blog-card-image" />
+      </a>
+    </div>
+  )}
+  <div class="blog-card-content">
+    <div class="blog-card-header">
+      <div class="blog-card-meta">
+        <FormattedDate date={pubDate} />
+        <span class="blog-card-dot">·</span>
+        <span>{readingTime} min read</span>
+      </div>
+      {tags.length > 0 && (
+        <div class="blog-card-tags">
+          {tags.map((tag) => (
+            <span class="pill">{tag}</span>
+          ))}
+        </div>
+      )}
+    </div>
+    <h2 class="blog-card-title">
+      <a href={`/blog/${post.id}/`}>{title}</a>
+    </h2>
+    <p class="blog-card-desc">{description}</p>
+    <div class="blog-card-footer">
+      <a href={`/blog/${post.id}/`} class="blog-card-link">
+        Read Article →
+      </a>
+    </div>
+  </div>
+</article>

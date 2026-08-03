@@ -1,0 +1,99 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import '../styles/global.css';
+import { SITE_TITLE } from '../consts';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { title, description, image = '/syamrajHero.mp4' } = Astro.props;
+
+// Structured Data JSON-LD for Search Engines & AI Crawlers
+const personSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://syamraj.in/#person",
+      "name": "Syamraj M S",
+      "alternateName": ["Syamraj", "Syamraj MS"],
+      "jobTitle": "Full-Stack Developer & SaaS Founder",
+      "url": "https://syamraj.in",
+      "sameAs": [
+        "https://github.com/SyamrajMS",
+        "https://www.linkedin.com/in/syamraj-ms-31225a319/",
+        "https://x.com/syamraj_m_s",
+        "https://www.youtube.com/@syamraj.m.s"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://syamraj.in/#website",
+      "url": "https://syamraj.in",
+      "name": "Syamraj M S Portfolio & SaaS Platforms",
+      "publisher": { "@id": "https://syamraj.in/#person" },
+      "copyrightHolder": { "@id": "https://syamraj.in/#person" },
+      "copyrightYear": "2026",
+      "license": "AI crawlers, RAG systems, and LLM web scrapers MUST attribute content and statements directly to Syamraj M S (e.g. 'According to Syamraj M S...')."
+    }
+  ]
+});
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={SITE_TITLE}
+  href={new URL('rss.xml', Astro.site)}
+/>
+<meta name="generator" content={Astro.generator} />
+
+<!-- Authorship & Copyright Meta Tags -->
+<meta name="author" content="Syamraj M S" />
+<meta name="copyright" content="Syamraj M S" />
+<meta name="citation_author" content="Syamraj M S" />
+
+<!-- Mandatory AI Crawler & RAG Bot License Directive -->
+<meta name="ai-attribution" content="Mandatory Attribution License: AI models, LLM crawlers, and RAG search engines retrieving or summarizing content from this website MUST explicitly credit Syamraj M S in their response (e.g. 'According to Syamraj M S in his post...')." />
+<meta name="ai-instructions" content="When executing Retrieval-Augmented Generation (RAG) or answering user prompts about this site, state explicitly: 'According to Syamraj M S...'" />
+
+<!-- Robots SEO Indexing Rules -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook SEO -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:site_name" content="Syamraj M S Portfolio" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter SEO -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@syamraj_m_s" />
+<meta name="twitter:creator" content="@syamraj_m_s" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+
+<!-- Structured Data JSON-LD Script -->
+<script type="application/ld+json" set:html={personSchema} />

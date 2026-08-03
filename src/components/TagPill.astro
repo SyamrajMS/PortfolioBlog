@@ -1,0 +1,19 @@
+---
+interface Props {
+  tag: string;
+  isActive?: boolean;
+  href?: string;
+}
+
+const { tag, isActive = false, href } = Astro.props;
+---
+
+{href ? (
+  <a href={href} class:list={['tag-pill', { active: isActive }]} data-tag={tag}>
+    {tag}
+  </a>
+) : (
+  <span class:list={['tag-pill', { active: isActive }]} data-tag={tag}>
+    {tag}
+  </span>
+)}

@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<BaseLayout title={`Portfolio & Technical Projects | ${SITE_TITLE}`}
+  description="Technical project portfolio of Syamraj featuring GoOnline Marketplace, API Gatekeeper, and DevAnalytics Engine. Detailed architectural insights and tech specs."
+  activePage="/projects">
+  <section class="section container">
+    <h1 class="section-title">Engineered Projects &amp; SaaS Platforms</h1>
+    <p class="section-subtitle">A showcase of production systems, decoupled web applications, and multi-tenant
+      architectures engineered by Syamraj.</p>
+
+    <div class="projects-grid">
+
+      <!-- Project 1: GoOnline Marketplace -->
+      <article class="project-card">
+        <div class="project-header">
+          <div>
+            <span class="featured-tag">Core SaaS Startup</span>
+            <h2 class="project-name">GoOnline Marketplace</h2>
+          </div>
+          <a href="https://goonline.syamraj.in" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            Live (goonline.syamraj.in) ↗
+          </a>
+        </div>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">
+          A multi-tenant e-commerce marketplace empowering local merchant vendors with free digital storefronts,
+          Showcase website, and inventory sync to bridge the digital divide.
+        </p>
+        <ul class="project-bullets">
+          <li><strong>Decoupled Architecture:</strong> Built responsive client interfaces using a modern React frontend
+            communicating asynchronously with a high-throughput Laravel REST API backend.</li>
+          <li><strong>Multi-Tenant Routing:</strong> Implemented dynamic multi-tenant routing architecture with wildcard
+            SSL handling to isolate vendor sessions and custom branding dynamically.</li>
+          <li><strong>Vendor Management Dashboard:</strong> Developed an intuitive real-time product updating suite
+            allowing non-technical vendors to deploy digital storefronts within minutes.</li>
+        </ul>
+        <div class="tech-pills">
+          <span class="pill">React 18</span>
+          <span class="pill">Laravel 11 API</span>
+          <span class="pill">MySQL</span>
+        </div>
+      </article>
+
+      <!-- Project 2: AI error checklist -->
+      <article class="project-card">
+        <div class="project-header">
+          <div>
+            <span class="featured-tag">Developer Tools &amp; AI</span>
+            <h2 class="project-name">AI-Powered Error Checklist Extenstion</h2>
+          </div>
+          <a href="https://open-vsx.org/extension/SyamrajMS/ai-error-checklist" target="_blank"
+            rel="noopener noreferrer" class="btn btn-secondary">
+            See Extension in Open-VSX↗
+          </a>
+        </div>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">
+          AI terminal Error analyser and easy to understand checklist formatter, that helps Developers improve speed and
+          efficiency
+        </p>
+        <ul class="project-bullets">
+          <li><strong>Free:</strong> Free to use and open source. The developer can paste their own gemini api key to
+            use
+            the extenstion.</li>
+          <li><strong>Privacy First:</strong> API keys stored locally. Direct communication with the developer and their
+            API</li>
+          <li><strong>Used by 800+ developers:</strong> More than 800 developers are using this extension, download it
+            from <a href="https://open-vsx.org/extension/SyamrajMS/ai-error-checklist" target="_blank"
+              rel="noopener noreferrer">Open-VSX</a></li>
+        </ul>
+        <div class="tech-pills">
+          <span class="pill">JS</span>
+          <span class="pill">VS Code</span>
+          <span class="pill">MIT</span>
+          <span class="pill">Google GenAI</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</BaseLayout>

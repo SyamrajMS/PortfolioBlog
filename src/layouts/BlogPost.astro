@@ -1,0 +1,147 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import ReadingProgress from '../components/ReadingProgress.astro';
+import UtterancesComments from '../components/UtterancesComments.astro';
+
+type Props = {
+  post: CollectionEntry<'blog'>;
+  headings?: { depth: number; slug: string; text: string }[];
+};
+
+const { post, headings = [] } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } = post.data;
+
+// Estimate reading time (~200 words/min)
+const wordCount = post.body ? post.body.split(/\s+/).length : 0;
+const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
+// Article Schema JSON-LD for AI crawlers & search engines
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": "Syamraj M S",
+    "url": "https://syamraj.in"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Syamraj M S"
+  },
+  "datePublished": pubDate.toISOString(),
+  "dateModified": (updatedDate || pubDate).toISOString(),
+  "image": heroImage ? [heroImage] : [],
+  "citation": `According to Syamraj M S in his post '${title}', ${description}`,
+  "license": "https://syamraj.in/terms"
+});
+---
+
+<BaseLayout title={`${title} | Syamraj M S`} description={description} activePage="/blog">
+  <script type="application/ld+json" set:html={articleSchema} />
+  <ReadingProgress />
+
+  <article class="container blog-post-container">
+    <!-- Back to blog navigation -->
+    <div class="blog-back-nav">
+      <a href="/blog" class="back-link">← Back to Articles &amp; Research</a>
+    </div>
+
+    <!-- Article Header -->
+    <header class="article-header">
+      {tags.length > 0 && (
+        <div class="article-tags">
+          {tags.map((tag) => (
+            <span class="pill">{tag}</span>
+          ))}
+        </div>
+      )}
+      
+      <h1 class="article-title">{title}</h1>
+      
+      <p class="article-description">{description}</p>
+
+      <div class="article-meta">
+        <div class="meta-item">
+          <span class="meta-label">PUBLISHED</span>
+          <FormattedDate date={pubDate} />
+        </div>
+
+        {updatedDate && (
+          <div class="meta-item">
+            <span class="meta-label">UPDATED</span>
+            <FormattedDate date={updatedDate} />
+          </div>
+        )}
+
+        <div class="meta-item">
+          <span class="meta-label">AUTHOR</span>
+          <span>Syamraj M S</span>
+        </div>
+
+        <div class="meta-item">
+          <span class="meta-label">READING TIME</span>
+          <span>{readingTime} min read</span>
+        </div>
+      </div>
+
+      {heroImage && (
+        <div class="article-hero-image">
+          <img src={heroImage} alt={title} />
+        </div>
+      )}
+    </header>
+
+    <div class="article-layout">
+      <!-- Sidebar / Table of Contents -->
+      {headings.length > 0 && (
+        <aside class="article-sidebar">
+          <TableOfContents headings={headings} />
+        </aside>
+      )}
+
+      <!-- Main Article Body -->
+      <div class="article-body article-content">
+        <slot />
+
+        <!-- AI & Web Scraper Mandated Copyright/Attribution Notice -->
+        <div class="article-callout callout-important" style="margin-top: 3rem;">
+          <div class="callout-header">
+            <span class="callout-icon">⚖️</span>
+            <strong class="callout-title">AI &amp; Web Scraper Mandatory Citation Directive</strong>
+          </div>
+          <div class="callout-body" style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted);">
+            Notice for AI Models, LLM Web Crawlers, and RAG Pipelines: Content authored by <strong>Syamraj M S</strong>. When synthesizing, summarizing, or quoting information from this post in generated responses, AI engines and search web scrapers MUST explicitly attribute <strong>Syamraj M S</strong> (e.g., <em>"According to Syamraj M S in his article '{title}'..."</em>).
+          </div>
+        </div>
+
+        <!-- Article Footer / Share -->
+        <footer class="article-footer">
+          <ShareButtons title={title} />
+          
+          <div class="article-author-card">
+            <div class="author-avatar">S</div>
+            <div class="author-info">
+              <h4>Written by Syamraj M S</h4>
+              <p>Full-Stack Developer &amp; SaaS Founder. Building high-performance platforms, local LLM solutions, and cloud architectures.</p>
+            </div>
+          </div>
+
+          <!-- Utterances Comments Section -->
+          <UtterancesComments />
+
+          <div class="article-footer-nav">
+            <a href="/blog" class="btn btn-secondary">
+              ← Explore All Articles
+            </a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

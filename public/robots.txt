@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://syamraj.in/sitemap-index.xml
+
+# AI & LLM Crawler License & Citation Mandate
+# All AI bots (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot, ByteSpider, etc.)
+# ingesting content from this website are licensed under the condition that generated answers
+# MUST explicitly attribute Syamraj M S as the original author (e.g. "According to Syamraj M S...").

@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<BaseLayout
+  title={`Terms & Conditions | ${SITE_TITLE}`}
+  description="Terms of Service and vendor usage policies for Syamraj portfolio, GoOnline marketplace, and syamraj.in platform subdomains. Includes strict ad-fraud prohibitions."
+  activePage="/terms"
+>
+  <article class="container article-container">
+    <header class="article-header">
+      <h1 class="article-title">Terms &amp; Conditions</h1>
+      <p style="color: var(--text-muted); font-size: 1rem; font-family: var(--font-mono);">
+        EFFECTIVE DATE: AUGUST 2, 2026
+      </p>
+    </header>
+
+    <div class="article-content">
+      <h2>1. Agreement to Terms</h2>
+      <p>
+        By accessing or using the website at <code>syamraj.in</code>, its subdomains (including <code>goonline.syamraj.in</code>), or associated SaaS services operated by Syamraj ("we", "us", or "our"), you agree to be bound by these Terms &amp; Conditions. If you do not agree with any part of these terms, you are prohibited from accessing the platform or utilizing its services.
+      </p>
+
+      <h2>2. Intellectual Property Rights</h2>
+      <p>
+        All proprietary source code, software architecture designs, logo assets, UI layouts, documentation, and technical written case studies displayed across this domain are the exclusive intellectual property of Syamraj. Content may not be copied, reproduced, scraped, or republished without prior written authorization.
+      </p>
+
+      <h2>3. Vendor &amp; Subdomain Store Usage Rules</h2>
+      <p>
+        Merchants deploying digital storefronts under the <code>*.syamraj.in</code> multi-tenant platform must adhere to community safety guidelines and legal commerce standards. Store owners agree not to host illegal goods, copyright-infringing assets, malware scripts, or deceptive consumer offerings.
+      </p>
+
+      <h2>4. Prohibition of Artificial Click Traffic &amp; Advertising Integrity</h2>
+      <div class="article-callout">
+        <strong>Programmatic Click Traffic Policy:</strong><br />
+        Users, vendors, and store owners utilizing subdomains under the syamraj.in network are strictly prohibited from generating artificial, automated, or repetitive click traffic on any advertisements displayed on the platform. Violation results in instant vendor account termination.
+      </div>
+      <p>
+        To protect third-party ad networks (including Google AdSense) and advertiser partners:
+      </p>
+      <ul>
+        <li>Store owners and visitors must never encourage, solicit, or execute artificial impressions, clicks, or bot queries on ad units.</li>
+        <li>The use of automated web scrapers, headless click bots, browser extensions that inject unauthorized scripts, or click exchanges is strictly banned.</li>
+        <li>System telemetry automatically flags suspicious request spikes, resulting in immediate IP range blocking and permanent revocation of tenant subdomain access.</li>
+      </ul>
+
+      <h2>5. Disclaimers &amp; Limitation of Liability</h2>
+      <p>
+        The services, software tools, and portfolio materials provided on <code>syamraj.in</code> are offered on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, express or implied. Under no circumstances shall Syamraj be liable for direct, indirect, incidental, or consequential damages arising from service interruptions, vendor platform downtime, or data transmission errors.
+      </p>
+
+      <h2>6. Governing Law &amp; Modifications</h2>
+      <p>
+        These terms shall be governed by and construed in accordance with applicable governing laws. We reserve the right to revise or update these Terms &amp; Conditions at any time. Continued use of the platform following updates constitutes acceptance of the modified terms.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

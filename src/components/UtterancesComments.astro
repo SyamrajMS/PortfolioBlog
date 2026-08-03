@@ -1,0 +1,36 @@
+---
+import { UTTERANCES_REPO } from '../consts';
+
+interface Props {
+  repo?: string;
+  issueTerm?: string;
+  theme?: string;
+}
+
+const {
+  repo = UTTERANCES_REPO,
+  issueTerm = 'pathname',
+  theme = 'github-dark',
+} = Astro.props;
+---
+
+<section class="comments-section" aria-label="Comments and Discussion">
+  <div class="comments-header">
+    <h3 class="comments-title">Discussion &amp; Feedback</h3>
+    <p class="comments-subtitle">
+      Powered by GitHub Issues via Utterances. Sign in with GitHub to share your thoughts, questions, or feedback on this article.
+    </p>
+  </div>
+  
+  <div class="utterances-wrapper">
+    <script
+      src="https://utteranc.es/client.js"
+      repo={repo}
+      issue-term={issueTerm}
+      theme={theme}
+      crossorigin="anonymous"
+      async
+      is:inline
+    ></script>
+  </div>
+</section>

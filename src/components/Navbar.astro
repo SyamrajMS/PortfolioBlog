@@ -1,0 +1,35 @@
+---
+import { NAV_LINKS } from '../consts';
+
+interface Props {
+  activePage?: string;
+}
+
+const { activePage = '' } = Astro.props;
+
+// Determine the current page from the URL if activePage is not provided
+const currentPath = Astro.url.pathname;
+const resolvedPage = activePage || currentPath;
+---
+
+<header class="header">
+  <div class="container nav-container">
+    <a href="/" class="brand-logo">
+      Syamraj<span class="dot"> M S</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        {NAV_LINKS.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={[{ active: resolvedPage === link.href || resolvedPage === `/${link.page}` || (link.page === 'index' && (resolvedPage === '/' || resolvedPage === '')) }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
