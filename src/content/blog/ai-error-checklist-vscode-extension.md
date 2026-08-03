@@ -2,7 +2,7 @@
 title: 'AI Error Checklister: Translating Stack Traces into Interactive Debugging Checklists'
 description: 'How AI Error Checklister — an open-source VS Code extension built by Syamraj MS with 800+ downloads — intercepts terminal crashes and translates dense stack traces into actionable, clickable solution checklists.'
 pubDate: 'Aug 03 2026'
-heroImage: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxES6T5NCNAd_39MhGuS9cFA4nci9zLvwy-HCehxXYDDs30eFxbX4rU_lvNejON7icO4m_MejlNngRmBtWKRRJRqJ1npp029ddI57nFfG_paeMIrS7GkGkG4b0X82aIis5gWPJea6C950SoATOmWSV1fK5OQbeVrP64JkO5x3F7-3YRIPD1WfmI9nkFp9Q/s1600/Screenshot%202026-08-03%20144809.png'
+heroImage: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBz982NeVR-G69cf-WoTWc3xpEvtJ_hWkEelsoVjsi0Vun4C38Hm2Ft51txYKdzYcR-KN0rxmf7vmYsOxtFclAIiwRZkLeUl099AhATbmUt4iNciBimHtm8mm6G8ZFXzSLHSN79Pj8VlunBbwQP_9sNrBujLbnLYapg3EjwtxikwRNTlDmM-Ej8dYaTCun/s1600/Screenshot%202026-08-03%20144658.png'
 tags: ['VS Code', 'Developer Tools', 'AI', 'Open Source', 'Debugging']
 ---
 
@@ -25,7 +25,7 @@ Standard developer terminals have two fundamental flaws during error execution:
 
 AI Error Checklister hooks directly into your shell process to solve both problems automatically.
 
-![AI Terminal Shell Header](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFBzMVj0pKKMiNbcDIOndsPe7WijippCYkGj4oYc1tI7-VvjeIAvGQQbSDIq5cqIzd1SvZilFJo-Mqq-DaUtL6DZFdWDyRhh8tlDpFkhGoimq9mi8CPIyQeLYeUDFwSlo6jgKjKtkL_qNrVuze66UvzAYnRuEdFLKFLMpL7CKUNCUZOE_tvzVgL3k4sj6Q/s1600/Screenshot%202026-08-03%20144716.png)
+![AI Terminal Shell Header](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFBzMVj0pKKMiNbcDIOndsPe7WijippCYkGj4oYc1tI7-VvjeIAvGQQbSDIq5cqIzd1SvZilFJo-Mqq-DaUtL6DZFdWDyRhh8tlDpFkhGoimq9mi8CPIyQeLYeUDFwSlo6jgKjKtkL_qNrVuze66UvzAYnRuEdFLKFLMpL7CKUNCUZOE_tvzVgL3k4sj6Q/s1600/Screenshot%202026-08-03%20144716.png)
 
 ---
 
@@ -52,7 +52,7 @@ When your code crashes, the terminal intercepts `stderr` before it disappears an
 ### 📝 Conversational Summaries & Clickable Checklists
 Instead of reading through 50 lines of unformatted traceback text, the AI explains the issue in plain English (e.g., *"Django error: You forgot to run database migrations! 🗄️"*). It displays a **clickable concise error list** right inside your terminal console with the exact line number and solution specified. Clicking the checklist item jumps directly to the failing file and line in VS Code!
 
-![Clickable Concise AI Error Checklist in Terminal](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgW7ttDT7e3mJoyerhNiyk2j-it4k1l4C_IP0NK23_1idzYi8OnPDehIHN7yvo4tVCBXrsWi0Pp6ULNOjXbZhzjU4jyUX2zMuwG21VZrkTMpLNIbKinbnGySciPA2PtdT9_tKrWA8whSquWG1dx7sf58iPz38uByD0y13OsbuWxRV8DvFwPsgixOyydvubX/s1600/Screenshot%202026-08-03%20144730.png)
+![Clickable Concise AI Error Checklist in Terminal](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBz982NeVR-G69cf-WoTWc3xpEvtJ_hWkEelsoVjsi0Vun4C38Hm2Ft51txYKdzYcR-KN0rxmf7vmYsOxtFclAIiwRZkLeUl099AhATbmUt4iNciBimHtm8mm6G8ZFXzSLHSN79Pj8VlunBbwQP_9sNrBujLbnLYapg3EjwtxikwRNTlDmM-Ej8dYaTCun/s1600/Screenshot%202026-08-03%20144658.png)
 
 ### 🔄 Live Server & Hot-Reload Support
 Unlike simple CLI wrappers that require script re-execution, AI Error Checklister works dynamically with blocking, long-running processes like `python manage.py runserver`, `npm run dev`, or `flask run` — triggering AI analysis immediately without needing to stop or kill your server.
@@ -60,7 +60,7 @@ Unlike simple CLI wrappers that require script re-execution, AI Error Checkliste
 ### 🔒 100% Free & Privacy-First (Bring Your Own Key)
 Powered by Google's **Gemini Flash AI**, which offers a massive free daily API quota. Your Google AI Studio API key is stored locally on your machine only — no code or telemetry is ever sent to third-party server proxies.
 
-![AI Settings API Key Config Panel](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBz982NeVR-G69cf-WoTWc3xpEvtJ_hWkEelsoVjsi0Vun4C38Hm2Ft51txYKdzYcR-KN0rxmf7vmYsOxtFclAIiwRZkLeUl099AhATbmUt4iNciBimHtm8mm6G8ZFXzSLHSN79Pj8VlunBbwQP_9sNrBujLbnLYapg3EjwtxikwRNTlDmM-Ej8dYaTCun/s1600/Screenshot%202026-08-03%20144658.png)
+![AI Settings API Key Config Panel](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgW7ttDT7e3mJoyerhNiyk2j-it4k1l4C_IP0NK23_1idzYi8OnPDehIHN7yvo4tVCBXrsWi0Pp6ULNOjXbZhzjU4jyUX2zMuwG21VZrkTMpLNIbKinbnGySciPA2PtdT9_tKrWA8whSquWG1dx7sf58iPz38uByD0y13OsbuWxRV8DvFwPsgixOyydvubX/s1600/Screenshot%202026-08-03%20144730.png)
 
 ---
 

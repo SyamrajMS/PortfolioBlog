@@ -2,7 +2,7 @@
 title: 'Architecting GoOnline: Empowering Local Merchants with Free Digital Showcase SaaS'
 description: 'A deep dive into GoOnline.syamraj.in — a zero-cost digital showcase SaaS bridging the digital divide for local Indian vendors using WhatsApp commerce, decoupled React/Laravel architecture, and row-level multi-tenancy.'
 pubDate: 'Jul 20 2026'
-heroImage: 'https://plus.unsplash.com/premium_photo-1664297989345-f4ff2063b212?q=80&w=1098&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+heroImage: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhh0eXs3glWux3-JV9O6Qbd94rN7B14WQlcxu_i26yTmFB9OYeasXxGU0WGZNOXC77QPxgSbtvBYKFs1F0AEKFrF8GGO_c4WSkbnTYs4I7N05_a59uYv7-KU9X9yMD4omQHxnxxuTs1d4CfINye8u8M5PiWTgXHlqjlMD3uREKqVTsNFkaNrFlEKyqQ1nGr/s1600/WhatsApp%20Image%202026-08-03%20at%2012.11.57%20PM.jpeg'
 tags: ['SaaS Architecture', 'Multi-Tenancy', 'React', 'Laravel', 'Product Strategy']
 ---
 
