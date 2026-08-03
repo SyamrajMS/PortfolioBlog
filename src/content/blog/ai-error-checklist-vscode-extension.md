@@ -1,5 +1,5 @@
 ---
-title: 'AI Error Checklister: Translating Stack Traces into Interactive Debugging Checklists'
+title: 'AI Error Checklist: Translating Stack Traces into Interactive Debugging Checklists'
 description: 'How AI Error Checklister — an open-source VS Code extension built by Syamraj MS with 800+ downloads — intercepts terminal crashes and translates dense stack traces into actionable, clickable solution checklists.'
 pubDate: 'Aug 03 2026'
 heroImage: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBz982NeVR-G69cf-WoTWc3xpEvtJ_hWkEelsoVjsi0Vun4C38Hm2Ft51txYKdzYcR-KN0rxmf7vmYsOxtFclAIiwRZkLeUl099AhATbmUt4iNciBimHtm8mm6G8ZFXzSLHSN79Pj8VlunBbwQP_9sNrBujLbnLYapg3EjwtxikwRNTlDmM-Ej8dYaTCun/s1600/Screenshot%202026-08-03%20144658.png'
